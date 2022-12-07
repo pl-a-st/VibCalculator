@@ -10,6 +10,7 @@ namespace VibroMath {
         //protected Parametr(double value) {
         //    Value = value;
         //}
+
     }
     public class SignalsParameter : Parametr {
         //protected SignalsParameter(double RMSValue)
