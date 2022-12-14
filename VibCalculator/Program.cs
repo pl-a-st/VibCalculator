@@ -8,9 +8,11 @@ using VibroMath;
 namespace VibCalculator {
     class Program {
         static void Main(string[] args) {
-            Sensitivity sensitivity = new Sensitivity();
-            sensitivity.Set_mV_G(100);
-            double mV_MS2 = sensitivity.Get_mV_MS2();
+            Voltage voltage = new Voltage();
+            voltage.SetRMS(100);
+            VibroCalc.CalcAll(voltage);
+            VibroCalc.Velocity.Get_dB();
+            VibroCalc.Voltage.Get_dB();
         }
     }
 }
