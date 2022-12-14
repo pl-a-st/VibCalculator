@@ -16,13 +16,10 @@ namespace VibroMath {
         }
     }
     public class Acceleration : VibroParametr {
-
     }
     public class Velocity : VibroParametr {
-
     }
     public class Displacement : VibroParametr {
-
     }
     public class Sensitivity : Parametr {
         private const double G = 9.807;
