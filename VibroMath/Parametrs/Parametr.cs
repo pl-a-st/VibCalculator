@@ -5,14 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace VibroMath {
-    public class Parametr {
+    public abstract class Parametr { // Рассказать про абстрактные классы
         private protected double Value;
         //protected Parametr(double value) {
         //    Value = value;
         //}
-
     }
-    public class SignalsParameter : Parametr {
+    public class SignalsParameter : Parametr { // abstract - класс не будет доступен для вызова
         //protected SignalsParameter(double RMSValue)
         //    : base(RMSValue) {
         //}
