@@ -37,8 +37,13 @@ namespace VibroMath {
         }
         public static void CalcAll(Voltage voltage) {
             Voltage = voltage;
-
-
+            SetAcceleration(voltage);
+        }
+        private static void SetAcceleration(Voltage voltage) {
+            Acceleration.SetRMS(voltage.GetRMS()/ Sensitivity.Get_mV_MS2());
+        }
+        public static void CalcAll(Acceleration acceleration) {
+            Acceleration = acceleration;
         }
     }
 }

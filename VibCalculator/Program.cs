@@ -13,6 +13,7 @@ namespace VibCalculator {
             VibroCalc.CalcAll(voltage);
             VibroCalc.Velocity.Get_dB();
             VibroCalc.Voltage.Get_dB();
+            double acc = VibroCalc.Acceleration.GetRMS();
         }
     }
 }
