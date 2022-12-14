@@ -34,4 +34,16 @@ namespace VibroMath {
             return Value * 2*Math.Sqrt(2);
         }
     }
+    public class VibroParametr : SignalsParameter {
+        private double Threshold = Math.Pow(10, -6);
+        public double Get_dB() {
+            
+            return 20 * Math.Log10(Value / Threshold);
+        }
+        public void Set_dB(double dB) {
+            double threshold = Math.Pow(10, -6);
+            Value = Math.Pow(10, dB / 20 )* Threshold;
+        }
+    }
+    
 }
