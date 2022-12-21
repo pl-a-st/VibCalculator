@@ -44,11 +44,10 @@ namespace VibroMath {
             Sensitivity.Set_mV_G(100);
             CalcAll();
         }
-        private static void CalcAll() {
-            SetAcceleration();
-            SetVelocity();
-            SetDisplacement();
-        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="voltage"></param>
         public static void CalcAll(Voltage voltage) {
             Voltage = voltage;
             SetAcceleration();
@@ -72,7 +71,7 @@ namespace VibroMath {
             Acceleration.SetRMS(Velocity.GetRMS() * 2 * Math.PI * Frequency.Get_Hz() / IntegrationFactor);
             Voltage.SetRMS(Acceleration.GetRMS() / Sensitivity.Get_mV_MS2());
         }
-        public static void CalcAll(Frequency frequency, Freeze freeze) {
+        public static void CalcAll(Frequency frequency, Freeze freeze = Freeze.Voltage) {
             Frequency = frequency;
             if (freeze == Freeze.Acceleration|| freeze == Freeze.Voltage) {
                 CalcAll(Acceleration);
@@ -96,13 +95,19 @@ namespace VibroMath {
                 CalcAll(Displacement);
             }
         }
+
+        private static void CalcAll() {
+            SetAcceleration();
+            SetVelocity();
+            SetDisplacement();
+        }
         private static void SetAcceleration() {
             Acceleration.SetRMS(Voltage.GetRMS() / Sensitivity.Get_mV_MS2());
         }
         private static void SetVelocity() {
             Velocity.SetRMS(Acceleration.GetRMS() / 2 / Math.PI / Frequency.Get_Hz() * IntegrationFactor);
         }
-        static private void SetDisplacement() {
+        private static void SetDisplacement() {
             Displacement.SetRMS(Velocity.GetRMS() / 2 / Math.PI / Frequency.Get_Hz() * IntegrationFactor);
         }
     }

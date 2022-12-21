@@ -33,9 +33,6 @@ namespace VibroMath {
 
             return Value / G;
         }
-        public void Set_mV_MS2(double mV_MS2) {
-            Value = mV_MS2 * G;
-        }
     }
     public class Frequency : Parametr {
         private const double CountSecondInMinute = 60;
