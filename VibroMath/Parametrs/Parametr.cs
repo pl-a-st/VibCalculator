@@ -5,16 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace VibroMath {
-    public abstract class Parametr { // Рассказать про абстрактные классы
+    public abstract class Parametr { 
         private protected double Value;
-        //protected Parametr(double value) {
-        //    Value = value;
-        //}
     }
-    public class SignalsParameter : Parametr { // abstract - класс не будет доступен для вызова
-        //protected SignalsParameter(double RMSValue)
-        //    : base(RMSValue) {
-        //}
+    public abstract class SignalsParameter : Parametr { 
         public void SetRMS(double RMS) {
             Value = RMS;
         }
@@ -34,10 +28,12 @@ namespace VibroMath {
             return Value * 2*Math.Sqrt(2);
         }
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public class VibroParametr : SignalsParameter {
         private double Threshold = Math.Pow(10, -6);
         public double Get_dB() {
-            
             return 20 * Math.Log10(Value / Threshold);
         }
         public void Set_dB(double dB) {
