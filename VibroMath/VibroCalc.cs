@@ -75,6 +75,7 @@ namespace VibroMath {
         /// <param name="acceleration"></param>
         public static void CalcAll(Acceleration acceleration) {
             Acceleration = acceleration;
+            Voltage.SetRMS(Sensitivity.Get_mV_MS2()* Acceleration.GetRMS());
             SetVelocity();
             SetDisplacement();
         }
@@ -87,14 +88,14 @@ namespace VibroMath {
         public static void CalcAll(Velocity velocity) {
             Velocity = velocity;
             Acceleration.SetRMS(Velocity.GetRMS() * 2 * Math.PI * Frequency.Get_Hz() / IntegrationFactor);
-            Voltage.SetRMS(Acceleration.GetRMS() / Sensitivity.Get_mV_MS2());
+            Voltage.SetRMS(Sensitivity.Get_mV_MS2()* Acceleration.GetRMS());
             SetDisplacement();
         }
         public static void CalcAll(Displacement displacement) {
             Displacement = displacement;
             Velocity.SetRMS(Displacement.GetRMS() * 2 * Math.PI * Frequency.Get_Hz() / IntegrationFactor);
             Acceleration.SetRMS(Velocity.GetRMS() * 2 * Math.PI * Frequency.Get_Hz() / IntegrationFactor);
-            Voltage.SetRMS(Acceleration.GetRMS() / Sensitivity.Get_mV_MS2());
+            Voltage.SetRMS(Sensitivity.Get_mV_MS2()* Acceleration.GetRMS());
         }
         /// <summary>
         /// Пересчитывает все параметры относитлеьно замароженного параметра указанно в "freeze"
