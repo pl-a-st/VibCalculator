@@ -104,7 +104,10 @@ namespace VibroMath {
         /// <param name="freeze"></param>
         public static void CalcAll(Frequency frequency, Freeze freeze) {
             Frequency = frequency;
-            if (freeze == Freeze.Acceleration || freeze == Freeze.Voltage) {
+            if (freeze == Freeze.Voltage) {
+                CalcAll(Voltage);
+            }
+            if (freeze == Freeze.Acceleration) {
                 CalcAll(Acceleration);
             }
             if (freeze == Freeze.Velocity) {
@@ -121,7 +124,10 @@ namespace VibroMath {
         /// <param name="freeze"></param>
         public static void CalcAll(Sensitivity sensitivity, Freeze freeze) {
             Sensitivity = sensitivity;
-            if (freeze == Freeze.Acceleration || freeze == Freeze.Voltage) {
+            if(freeze == Freeze.Voltage) {
+                CalcAll(Voltage);
+            }
+            if (freeze == Freeze.Acceleration ) {
                 CalcAll(Acceleration);
             }
             if (freeze == Freeze.Velocity) {
