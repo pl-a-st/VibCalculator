@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VibroMath {
     /// <summary>
-    /// Навпряжение.
+    /// Напряжение.
     /// </summary>
     public class Voltage : SignalsParameter {
         private double Threshold = Math.Pow(10, -3);
