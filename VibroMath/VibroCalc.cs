@@ -62,7 +62,7 @@ namespace VibroMath {
         } = new Frequency();
 
         static VibroCalc() {
-            Frequency.Set_RPM(1000 / 2 / Math.PI / 60);
+            Frequency.Set_RPM(1000 / 2 / Math.PI * 60);
             Voltage.SetRMS(100);
             Sensitivity.Set_mV_G(100);
             CalcAll();

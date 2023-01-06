@@ -104,14 +104,14 @@ namespace VibroMath {
         /// <returns></returns>
         public double Get_RPM() {
 
-            return Value / CountSecondInMinute;
+            return Value * CountSecondInMinute;
         }
         /// <summary>
         /// Присваивает значение параметру. Прнимает Об/мин.
         /// </summary>
         /// <param name="RPM"></param>
         public void Set_RPM(double RPM) {
-            Value = RPM * CountSecondInMinute;
+            Value = RPM / CountSecondInMinute;
         }
     }
 }

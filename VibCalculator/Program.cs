@@ -12,6 +12,8 @@ namespace VibCalculator {
             double vel = VibroCalc.Velocity.GetRMS();
             double dis = VibroCalc.Displacement.GetRMS();
             double freq = VibroCalc.Frequency.Get_Hz();
+            double sens = VibroCalc.Sensitivity.Get_mV_MS2();
+            double sens2 = VibroCalc.Sensitivity.Get_mV_G();
 
             Frequency frequency = new Frequency();
             frequency.Set_Hz(80);
