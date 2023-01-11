@@ -54,6 +54,21 @@ namespace VibroMath {
             double threshold = Math.Pow(10, -6);
             Value = Math.Pow(10, dB / 20) * Threshold;
         }
+        public double Get(SignalParametrType param) {
+            if (param == SignalParametrType.RMS) {
+                return GetRMS();
+            }
+            if (param == SignalParametrType.PIK) {
+                return GetPIK();
+            }
+            if (param == SignalParametrType.PIK_PIK) {
+                return GetPIK_PIK();
+            }
+            if (param == SignalParametrType.dB) {
+                return Get_dB();
+            }
+            return Value;
+        }
     }
     /// <summary>
     /// Виброускорение.
@@ -129,6 +144,20 @@ namespace VibroMath {
         public void Set_mV_MS2(double mV_MS2) {
             Value = mV_MS2 * G;
         }
+        /// <summary>
+        /// Возвращает чувствительность в зависимости от заданного типа
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public double Get(SensitivityType type) {
+            if (type == SensitivityType.mV_G) {
+                return Get_mV_G();
+            }
+            if (type == SensitivityType.mV_MS2) {
+                return Get_mV_MS2();
+            }
+            return Value;
+        }
     }
     /// <summary>
     /// Частота
@@ -164,7 +193,6 @@ namespace VibroMath {
         /// </summary>
         /// <returns></returns>
         public double Get_RPM() {
-
             return Value * CountSecondInMinute;
         }
         /// <summary>
@@ -173,6 +201,20 @@ namespace VibroMath {
         /// <param name="RPM"></param>
         public void Set_RPM(double RPM) {
             Value = RPM / CountSecondInMinute;
+        }
+        /// <summary>
+        /// Возвращает частоту в зависимости от заданного типа
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public double Get(FrequencyType type) {
+            if (type == FrequencyType.HZ) {
+                return Get_Hz();
+            }
+            if (type == FrequencyType.RPM) {
+                return Get_RPM();
+            }
+            return Value;
         }
     }
 }

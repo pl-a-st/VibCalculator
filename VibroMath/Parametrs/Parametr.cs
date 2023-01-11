@@ -60,6 +60,7 @@ namespace VibroMath {
         public double GetPIK_PIK() {
             return Value * 2*Math.Sqrt(2);
         }
+
     }
     abstract public class VibroParametr : SignalsParameter {
         public VibroParametr() {
@@ -94,6 +95,26 @@ namespace VibroMath {
         public void Set_dB(double dB) {
             double threshold = Math.Pow(10, -6);
             Value = Math.Pow(10, dB / 20 )* Threshold;
+        }
+        /// <summary>
+        /// Возвращает параметр в зависимости от указанного типа
+        /// </summary>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        public double Get(SignalParametrType param) {
+            if(param == SignalParametrType.RMS) {
+                return GetRMS();
+            }
+            if (param == SignalParametrType.PIK) {
+                return GetPIK();
+            }
+            if (param == SignalParametrType.PIK_PIK) {
+                return GetPIK_PIK();
+            }
+            if (param == SignalParametrType.dB) {
+                return Get_dB();
+            }
+            return Value;
         }
     }
     
