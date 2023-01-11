@@ -20,6 +20,7 @@ namespace VibCalculator {
 
             Velocity velocity = new Velocity();
             velocity.SetRMS(140);
+            //VibroCalc.CalcAll(new Frequency, Freeze.;
             VibroCalc.CalcAll(frequency, Freeze.Acceleration);
             acc = VibroCalc.Acceleration.GetRMS();
             vel = VibroCalc.Velocity.GetRMS();
@@ -30,6 +31,12 @@ namespace VibCalculator {
             vel = VibroCalc.Velocity.GetRMS();
             dis = VibroCalc.Displacement.GetRMS();
             freq = VibroCalc.Frequency.Get_Hz();
+            VibroCalc.CalcAll(new Acceleration(10, SignalParametrType.PIK));
+            VibroCalc.CalcAll((new Frequency(40, FrequencyType.HZ)), Freeze.Velocity);
+            VibroCalc.CalcAll(new Sensitivity(30, SensitivityType.mV_G), Freeze.Voltage);
+            acc = VibroCalc.Acceleration.GetRMS();
+
+
 
         }
     }

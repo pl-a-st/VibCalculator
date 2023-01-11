@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+/// <summary>
+/// Параметр сигнала
+/// </summary>
+public enum SignalParametrType {
+    RMS,
+    PIK,
+    PIK_PIK,
+    dB
+}
 
 namespace VibroMath {
-    public abstract class Parametr { 
+     abstract public class Parametr { 
         private protected double Value;
     }
-    public abstract class SignalsParameter : Parametr { 
+    abstract public class SignalsParameter : Parametr { 
         /// <summary>
         /// Присваивает значение параметру, принимает СКЗ
         /// </summary>
@@ -52,7 +61,24 @@ namespace VibroMath {
             return Value * 2*Math.Sqrt(2);
         }
     }
-    public abstract class VibroParametr : SignalsParameter {
+    abstract public class VibroParametr : SignalsParameter {
+        public VibroParametr() {
+
+        }
+        public VibroParametr(double value, SignalParametrType parametr) {
+            if(parametr == SignalParametrType.RMS) {
+                SetRMS(value);
+            }
+            if (parametr == SignalParametrType.PIK) {
+                SetPIK(value);
+            }
+            if (parametr == SignalParametrType.PIK_PIK) {
+                SetPIK_PIK(value);
+            }
+            if (parametr == SignalParametrType.dB) {
+                Set_dB(value);
+            }
+        }
         private double Threshold = Math.Pow(10, -6);
         /// <summary>
         /// Возвращает значение в дБ
