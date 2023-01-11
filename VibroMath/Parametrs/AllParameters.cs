@@ -3,12 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/// <summary>
+/// Единицы измерения частоты вращения
+/// </summary>
+public enum FrequencyType {
+    HZ,
+    RPM
+}
+/// <summary>
+/// Единицы измерения частоты вращения
+/// </summary>
+public enum SensitivityType {
+    mV_G,
+    mV_MS2
+}
 namespace VibroMath {
     /// <summary>
     /// Навпряжение.
     /// </summary>
     public class Voltage : SignalsParameter {
+        public Voltage() {
+
+        }
+        public Voltage(double value, SignalParametrType parametr) {
+            if (parametr == SignalParametrType.RMS) {
+                SetRMS(value);
+            }
+            if (parametr == SignalParametrType.PIK) {
+                SetPIK(value);
+            }
+            if (parametr == SignalParametrType.PIK_PIK) {
+                SetPIK_PIK(value);
+            }
+            if (parametr == SignalParametrType.dB) {
+                Set_dB(value);
+            }
+        }
         private double Threshold = Math.Pow(10, -3);
         /// <summary>
         /// Возвращает значение в дБ.
@@ -30,22 +60,44 @@ namespace VibroMath {
     /// Виброускорение.
     /// </summary>
     public class Acceleration : VibroParametr {
+        public Acceleration() : base() { 
+        }
+        public Acceleration(double value, SignalParametrType param) : base(value, param) {
+        }
     }
     /// <summary>
     /// Виброскорость.
     /// </summary>
     public class Velocity : VibroParametr {
+        public Velocity() : base() {
+        }
+        public Velocity(double value, SignalParametrType param) : base(value, param) {
+        }
     }
     /// <summary>
     /// Виброперемещение.
     /// </summary>
     public class Displacement : VibroParametr {
+        public Displacement() : base() {
+        }
+        public Displacement(double value, SignalParametrType param) : base(value, param) {
+        }
     }
     /// <summary>
     /// Коэффициент преобразования датчика.
     /// 
     /// </summary>
     public class Sensitivity : Parametr {
+        public Sensitivity() {
+        }
+        public Sensitivity(double value, SensitivityType type) {
+            if (type == SensitivityType.mV_G) {
+                Set_mV_G(value);
+            }
+            if (type == SensitivityType.mV_MS2) {
+                Set_mV_MS2(value);
+            }
+        }
         /// <summary>
         /// Единица измерения вибрационного ускорения принятая равной 9,807 м/с²
         /// </summary>
@@ -88,6 +140,16 @@ namespace VibroMath {
         /// Возвращает значение в Гц.
         /// </summary>
         /// <returns></returns>
+        public Frequency() {
+        }
+        public Frequency(double value, FrequencyType type) {
+            if (type == FrequencyType.HZ) {
+                Set_Hz(value);
+            }
+            if (type == FrequencyType.RPM) {
+                Set_RPM(value);
+            }
+        }
         public double Get_Hz() {
             return Value;
         }
