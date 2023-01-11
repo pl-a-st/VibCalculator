@@ -35,9 +35,6 @@ namespace VibCalculator {
             VibroCalc.CalcAll((new Frequency(40, FrequencyType.HZ)), Freeze.Velocity);
             VibroCalc.CalcAll(new Sensitivity(30, SensitivityType.mV_G), Freeze.Voltage);
             acc = VibroCalc.Acceleration.GetRMS();
-
-
-
         }
     }
 }

@@ -23,7 +23,6 @@ namespace VibroMath {
     /// </summary>
     public class Voltage : SignalsParameter {
         public Voltage() {
-
         }
         public Voltage(double value, SignalParametrType parametr) {
             if (parametr == SignalParametrType.RMS) {
