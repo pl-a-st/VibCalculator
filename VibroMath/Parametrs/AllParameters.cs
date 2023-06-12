@@ -170,6 +170,11 @@ namespace VibroMath {
         /// <returns></returns>
         public Frequency() {
         }
+        /// <summary>
+        /// Задает частоту в соотвестви с указанным параметром
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="type"></param>
         public Frequency(double value, FrequencyType type) {
             if (type == FrequencyType.HZ) {
                 Set_Hz(value);
