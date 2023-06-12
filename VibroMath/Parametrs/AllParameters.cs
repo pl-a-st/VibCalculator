@@ -18,6 +18,7 @@ public enum SensitivityType {
     mV_MS2
 }
 namespace VibroMath {
+    [Serializable]
     /// <summary>
     /// Напряжение.
     /// </summary>
@@ -70,6 +71,7 @@ namespace VibroMath {
             return Value;
         }
     }
+    [Serializable]
     /// <summary>
     /// Виброускорение.
     /// </summary>
@@ -79,6 +81,7 @@ namespace VibroMath {
         public Acceleration(double value, SignalParametrType param) : base(value, param) {
         }
     }
+    [Serializable]
     /// <summary>
     /// Виброскорость.
     /// </summary>
@@ -88,6 +91,7 @@ namespace VibroMath {
         public Velocity(double value, SignalParametrType param) : base(value, param) {
         }
     }
+    [Serializable]
     /// <summary>
     /// Виброперемещение.
     /// </summary>
@@ -97,6 +101,7 @@ namespace VibroMath {
         public Displacement(double value, SignalParametrType param) : base(value, param) {
         }
     }
+    [Serializable]
     /// <summary>
     /// Коэффициент преобразования датчика.
     /// 
@@ -159,6 +164,7 @@ namespace VibroMath {
             return Value;
         }
     }
+    [Serializable]
     /// <summary>
     /// Частота
     /// </summary>

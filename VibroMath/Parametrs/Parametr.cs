@@ -14,9 +14,11 @@ public enum SignalParametrType {
 }
 
 namespace VibroMath {
-     abstract public class Parametr { 
+    [Serializable]
+    abstract public class Parametr { 
         private protected double Value;
     }
+    [Serializable]
     abstract public class SignalsParameter : Parametr { 
         /// <summary>
         /// Присваивает значение параметру, принимает СКЗ
@@ -62,6 +64,7 @@ namespace VibroMath {
         }
 
     }
+    [Serializable]
     abstract public class VibroParametr : SignalsParameter {
         public VibroParametr() {
 
